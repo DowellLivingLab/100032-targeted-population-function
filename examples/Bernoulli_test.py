@@ -7,8 +7,8 @@ url = 'http://127.0.0.1:5000/api/targeted_population/'
 
 database_details = {
     'database_name': 'mongodb',
-    'collection': 'day001',
-    'database': 'Bangalore',
+    'collection': 'licenses',
+    'database': 'license',
     'fields': ['eventId']
 }
 
@@ -24,7 +24,7 @@ number_of_variables = -1
 time_input = {
     'column_name': 'Date',
     'split': 'week',
-    'period': 'life_time',
+    'period': 'last_30_days',
     'start_point': '2021/01/08',
     'end_point': '2021/01/25',
 }
@@ -44,10 +44,10 @@ stage_input_list = [
 
 # distribution input
 distribution_input = {
-    'normal': 1,
+    'normal': 0,
     'poisson': 0,
     'binomial': 0,
-    'bernoulli': 0
+    'bernoulli': 1
 
 }
 
@@ -64,3 +64,5 @@ headers = {'content-type': 'application/json'}
 response = requests.post(url, json=request_data, headers=headers)
 
 print(response.text)
+
+

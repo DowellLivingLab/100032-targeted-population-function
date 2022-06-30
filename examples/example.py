@@ -27,7 +27,7 @@ number_of_variables = -1
 time_input = {
     'column_name': 'Date',
     'split': 'week',
-    'period': 'life_time',
+    'period': 'last_30_days',
     'start_point': '2021/01/08',
     'end_point': '2021/01/25',
 }
@@ -37,10 +37,10 @@ stage_input_list = [
 
 # distribution input
 distribution_input={
-    'normal': 1,
-    'poisson':1,
+    'normal': 0,
+    'poisson':0,
     'binomial':0,
-    'bernoulli':1
+    'bernoulli':0
     
 }
 
