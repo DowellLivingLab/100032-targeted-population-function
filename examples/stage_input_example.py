@@ -5,7 +5,7 @@ stage_input_list = [
         'm_or_A_value': 500,
         'error': 10,
     },
-]
+
 
 
      {
@@ -26,3 +26,4 @@ stage_input_list = [
         'last_position':2,
 
     }
+    ]

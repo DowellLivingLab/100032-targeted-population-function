@@ -70,10 +70,10 @@ The fields are those fields on which the distribution logic will be applied.
 ```python
 time_input = {
     'column_name': 'Date',
-    'split':'week'
+    'split':'week',
     'period': 'life_time',
     'start_point': '2021/01/08',
-    'end_point': '2021/01/25',
+    'end_point': '2021/01/25'
 }
 
 ```
