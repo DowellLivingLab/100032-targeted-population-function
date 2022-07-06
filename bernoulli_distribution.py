@@ -5,8 +5,10 @@ import requests
 import time
 
 
-def bernoulli_distribution(params, selection_start_point, items_to_be_selected):
+def bernoulli_distribution(params, selection_start_point, items_to_be_selected, data):
     # shuffle data by passing the data from the db through the API
+
+    print(data)
     start_time = time.time()
     po = selection_start_point
     n = items_to_be_selected
