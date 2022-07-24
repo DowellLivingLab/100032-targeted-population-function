@@ -1,6 +1,4 @@
-
-
-#Split function
+#split function
 def make_splits(data_input, SIZE): 
         for i in range(0, len(data_input), SIZE):
             yield data_input[i:i + SIZE] 
@@ -19,12 +17,16 @@ def condition(list_a, cond):
 
 #User input for success
 def success_condition_logic (data, user_choice, function):
-    if function == "<":
-        return (condition(list_a=data, cond=lambda x : x <= user_choice))
-    elif function == ">":
-        return condition(list_a=data, cond=lambda x : x >= user_choice)
-    elif function == "=":
-        return condition(list_a=data, cond=lambda x : x == user_choice)
+    if function is None:
+        pass   
+    else:
+        if function == "<":
+            return (condition(list_a=data, cond=lambda x : x <= user_choice))
+        elif function == ">":
+            return condition(list_a=data, cond=lambda x : x >= user_choice)
+        elif function == "=":
+            return condition(list_a=data, cond=lambda x : x == user_choice)
+    
           
 
 def split_decision_function(splitted_data, size, split_decision, error, user_choice, function):
@@ -51,8 +53,10 @@ def split_decision_function(splitted_data, size, split_decision, error, user_cho
                     s = success_condition_logic(splitted_data, user_choice = user_choice, function=function)
                     return [event_id, data, splitted_data, s, function, user_choice]
 
-def binomial_distribution(event_id, data, number_of_variables, split_choice, error, split_decision, user_choice, function, marginal_error):                            
-    if split_choice == "simple":
+def binomial_distribution(event_id, data, number_of_variables, split_choice, error, split_decision, user_choice, function, marginal_error):
+    if not data:
+        return "Data not valid"                            
+    elif split_choice == "simple":
         splitted_data = list(make_splits(data, number_of_variables))
         if split_decision == "Eliminate":
            success = split_decision_function(splitted_data=splitted_data, size=number_of_variables, split_decision=split_decision, error=0, user_choice=user_choice, function=function)
@@ -84,6 +88,6 @@ def binomial_distribution(event_id, data, number_of_variables, split_choice, err
         return [event_id, data, splitted_data,function, user_choice, success_count]
 
 import random
-data = random.sample(range(0,10000),53)
+data = random.sample(range(0,10000),55)
 event_id = "event_id"
-print(binomial_distribution(event_id=event_id, data=data, number_of_variables = 5, split_choice = "simple", error=0, split_decision="Check Accuracy",marginal_error=0.6, user_choice=4000, function="<"))
+#print(binomial_distribution(event_id=event_id, data=data, number_of_variables = 5, split_choice = "simple", error=0, split_decision="Check Accuracy",marginal_error=0.6, user_choice=4000, function="<"))
