@@ -6,13 +6,7 @@ from bernoulli_distribution import bernoulli_distribution
 
 
 def targeted_population(distribution_input, database_details, time_input, number_of_variable, stage_input_list):
-<<<<<<< HEAD
-    data, start_dowell_time, end_dowell_time = get_data_for_distribution(time_input,
-                                                                         stage_input_list, database_details)
-    print(data)
-=======
     data, start_dowell_time, end_dowell_time, event_id_key_dict = get_data_for_distribution(time_input, database_details)
->>>>>>> bf5624192027014dce53f58795e1be199db28225
     distribution_results = {}
     fields = database_details['fields']
     split = time_input['split']
