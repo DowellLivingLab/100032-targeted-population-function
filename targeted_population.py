@@ -50,7 +50,7 @@ def targeted_population(distribution_input, database_details, time_input, number
 
     if distribution_input['binomial'] == 1:
         number_of_variables=5
-        split_choice = "simple"
+        split_choice = "Simple"
         distribution_results['binomial'] = binomial_distribution(event_id="event_id", data=data, number_of_variables=number_of_variables, split_choice=split_choice, error="0", split_decision="Eliminate", user_choice="normal", function="=", marginal_error="0")
 
     if distribution_input['bernoulli'] == 1:

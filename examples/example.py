@@ -26,7 +26,7 @@ number_of_variables = -1
 
 time_input = {
     'split': 'week',
-    'period': 'life_time',
+    'period': 'last_1_day',
     'start_point': '2021/01/08',
     'end_point': '2021/01/25',
 }
@@ -36,13 +36,9 @@ stage_input_list = [
 
 # distribution input
 distribution_input={
-    'normal': 0,
+    'normal': 1,
     'poisson':0,
-<<<<<<< HEAD
-    'binomial':1,
-=======
     'binomial':0,
->>>>>>> bf5624192027014dce53f58795e1be199db28225
     'bernoulli':0
     
 }
