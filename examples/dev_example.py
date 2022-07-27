@@ -3,12 +3,12 @@ import requests
 
 url = 'http://127.0.0.1:5000/api/targeted_population/'
 ## production api url
-# url = 'http://100032.pythonanywhere.com/api/targeted_population/'
+#url = 'http://100032.pythonanywhere.com/api/targeted_population/'
 
 database_details = {
     'database_name': 'mongodb',
-    'collection': 'licenses',
-    'database': 'license',
+    'collection': 'day001',
+    'database': 'Bangalore',
     'fields':['eventId']
 }
 
@@ -25,6 +25,7 @@ number_of_variables = -1
 
 
 time_input = {
+    'column_name': 'Date',
     'split': 'week',
     'period': 'life_time',
     'start_point': '2021/01/08',
@@ -32,18 +33,24 @@ time_input = {
 }
 
 stage_input_list = [
+    {
+        'data_type': 1,
+        'm_or_A_selction': 'maximum_point',
+        'm_or_A_value': 700,
+        'error': 20,
+        'r': 100,
+        'start_point': 0,
+        'end_point': 700,
+        'a': 2,
+    }
 ]
 
 # distribution input
 distribution_input={
-    'normal': 0,
-    'poisson':0,
-<<<<<<< HEAD
-    'binomial':1,
-=======
+    'normal': 1,
+    'poisson':1,
     'binomial':0,
->>>>>>> bf5624192027014dce53f58795e1be199db28225
-    'bernoulli':0
+    'bernoulli':1
     
 }
 
@@ -52,8 +59,8 @@ request_data={
     'database_details': database_details,
     'distribution_input': distribution_input,
     'number_of_variable':number_of_variables,
-    'stages': stage_input_list,
-    'time_input': time_input,
+    'stages':stage_input_list,
+    'time_input':time_input,
 }
 
 headers = {'content-type': 'application/json'}

@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask import request
+
 import json
 from bson import ObjectId
 from datetime import date, datetime
 
-from get_data_tools import fetch_fields_from_db
 from targeted_population import targeted_population
 
 app = Flask(__name__)
@@ -18,18 +18,6 @@ class JSONEncoder(json.JSONEncoder):
         if isinstance(o, (datetime, date)):
             return o.isofoflx.rmat()
         return json.JSONEncoder.default(self, o)
-
-
-@app.route('/api/fetch-fields-from-db', methods=['POST', ])
-def fetch_fields_from_db_json_response():
-    request_data = request.get_json()
-    database = request_data['database']
-    collection = request_data['collection']
-    fields = request_data['fields']
-    start_point = request_data['start_point']
-    end_point = request_data['end_point']
-    data = fetch_fields_from_db(fields, database, collection, start_point, end_point)
-    return JSONEncoder().encode(data)
 
 
 @app.route('/api/targeted_population/', methods=['POST', ])
@@ -47,6 +35,12 @@ def targeted_population_json_response():
                                      stage_input_list)
 
         return JSONEncoder().encode(result)
+
+
+@app.route('/', methods=["GET"])
+def frontend_event_create():
+    if request.method == "GET":
+        return render_template('index.html')
 
 
 if __name__ == '__main__':
