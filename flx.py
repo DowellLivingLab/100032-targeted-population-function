@@ -16,7 +16,7 @@ class JSONEncoder(json.JSONEncoder):
             return str(o)
 
         if isinstance(o, (datetime, date)):
-            return o.isoformat()
+            return o.isofoflx.rmat()
         return json.JSONEncoder.default(self, o)
 
 

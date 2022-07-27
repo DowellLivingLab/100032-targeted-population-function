@@ -38,10 +38,10 @@ stage_input_list = [
 
 # distribution input
 distribution_input={
-    'normal': 1,
+    'normal': 0,
     'poisson':0,
-    'binomial':0,
-    'bernoulli':1
+    'binomial':1,
+    'bernoulli':0
     
 }
 

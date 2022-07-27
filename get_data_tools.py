@@ -154,3 +154,5 @@ def get_data_for_distribution(time_input, stage_input_list, database_details):
     query, start_dowell_time, end_dowell_time = populate_db_query(time_input, stage_input_list)
     data = fetch_data_with_query(query, database_details['collection'], database_details['database'])
     return data, start_dowell_time, end_dowell_time
+
+

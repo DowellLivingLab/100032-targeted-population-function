@@ -28,4 +28,3 @@ def targeted_population(distribution_input, database_details, time_input, number
 
     return distribution_results
 
-print()
